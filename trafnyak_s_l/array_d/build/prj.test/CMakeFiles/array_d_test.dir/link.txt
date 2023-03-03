@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/array_d_test.dir/array_d_test.cpp.o -o /home/semelion/CLionProjects/oop_course_spring_2023/trafnyak_s_l/array_d/bin/array_d_test  ../prj.lab/array_d/libarray_d.a 
