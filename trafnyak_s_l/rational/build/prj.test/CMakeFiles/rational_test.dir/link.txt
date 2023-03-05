@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/rational_test.dir/rational_test.cpp.o -o ../../bin/rational_test  ../prj.lab/rational/librational.a 
