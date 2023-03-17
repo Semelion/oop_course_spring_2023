@@ -83,15 +83,10 @@ const double& array_d::operator[] (const std::ptrdiff_t i) const
 }
 
 void array_d::insert(const std::ptrdiff_t index, const double value) {
-    array_d temp[size_ - index];
-    for(std::ptrdiff_t i = 0; i < index; i++){
-        temp[i] = this[index + i];
+    this ->resize(size_ + 1);
+    for(std::ptrdiff_t i = size_ - 1; i > index; i--){
+        *(data_ + i) = *(data_ + i - 1);
     }
-    this->resize(size_ + 1);
-
     *(data_ + index) = value;
-    for(std::ptrdiff_t i = index + 1; i < size_; i++){
-        this[i] = temp[i - index];
-    }
 }
 
