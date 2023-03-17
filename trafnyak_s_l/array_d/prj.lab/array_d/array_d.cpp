@@ -1,42 +1,34 @@
 #include "include/array_d/array_d.hpp"
-
+#include <algorithm>
 #include <iostream>
 #include <stdexcept>
 
-/*int main(){
-    array_d test(10);
+int main(){
+    array_d test(15);
+    test.resize(10);
     for(int i = 0; i < 10; i++){
         test[i] = i;
     }
-    for(int i = 0; i < 10; i++){
-        std::cout << test[i] << " ";
-    }
-    std::cout << std::endl;
-    test.resize(15);
+    test.insert(2,32);
     for(int i = 0; i < test.size(); i++){
         std::cout << test[i] << " ";
     }
-    std::cout << std::endl;
-    test.resize(8);
-    for(int i = 0; i < test.size(); i++){
-        std::cout << test[i] << " ";
-    }
-}*/
+}
 
-array_d::array_d(const array_d& rhs)
-{
+array_d::array_d(const array_d& rhs){
     size_ = rhs.size();
     capacity_ = rhs.capacity();
     data_ = new double [capacity_];
     for (size_t i = 0; i < size(); i++)
         *(data_ + i) = *(rhs.data_ + i);
 }
-array_d::~array_d()
-{
+array_d::~array_d(){
     delete[] data_;
 }
-array_d& array_d::operator= (const array_d& rhs)
-{
+array_d& array_d::operator= (const array_d& rhs){
+    if(this == &rhs){
+        return *this;
+    }
     if (capacity_ >= rhs.size())
         size_ = rhs.size_;
     else
@@ -51,8 +43,7 @@ array_d& array_d::operator= (const array_d& rhs)
     }
     return *this;
 }
-array_d::array_d(const std::ptrdiff_t size)
-{
+array_d::array_d(const std::ptrdiff_t size){
     if (size < 0)
         throw std::logic_error ("size is negative");
     capacity_ = 2 * size + 1;
@@ -63,16 +54,16 @@ array_d::array_d(const std::ptrdiff_t size)
 }
 void array_d::resize(const std::ptrdiff_t size)
 {
-    if (size < 0)
-        throw std::logic_error("size is negative");
-    if (size > capacity_)
-    {
+    if (size <= 0)
+        throw std::logic_error("size isn't normal");
+    if (size > capacity_){
         capacity_ = 2 * size + 1;
         double* temp = new double[capacity_];
         for (std::ptrdiff_t i = 0; i < size_; i++)
             *(temp + i) = *(data_+ i);
         data_ = temp;
     }
+//    std::fill
     for (std::ptrdiff_t i = size_; i < size; i++)
         *(data_ + i) = 0.0f;
     size_ = size;
@@ -90,3 +81,17 @@ const double& array_d::operator[] (const std::ptrdiff_t i) const
     return *(data_ + i);
 
 }
+
+void array_d::insert(const std::ptrdiff_t index, const double value) {
+    array_d temp[size_ - index];
+    for(std::ptrdiff_t i = 0; i < index; i++){
+        temp[i] = this[index + i];
+    }
+    this->resize(size_ + 1);
+
+    *(data_ + index) = value;
+    for(std::ptrdiff_t i = index + 1; i < size_; i++){
+        this[i] = temp[i - index];
+    }
+}
+

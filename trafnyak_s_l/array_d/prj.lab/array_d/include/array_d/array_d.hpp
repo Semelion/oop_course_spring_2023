@@ -19,6 +19,7 @@ public:
     void resize (const std::ptrdiff_t size);
     [[nodiscard]] std::ptrdiff_t size() const { return size_; };
     [[nodiscard]] std::ptrdiff_t capacity() const { return capacity_; };
+    void insert (const std::ptrdiff_t index, const double value);
 
 private:
     ptrdiff_t size_ = 0;
