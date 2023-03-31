@@ -1,14 +1,16 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include <doctest/doctest.h>
 
-#include <array_d/array_d.hpp>
+#include <arrayt/arrayt.hpp>
 
-TEST_CASE("[array_d] - array_d ctor") {
+using arrayd = ArrayT<double>;
+
+TEST_CASE("[arrayd] - arrayd ctor") {
 //    CHECK(0==0);
-  CHECK(array_d(10).size() == 10);
-  CHECK(array_d(0).size() == 0);
+  CHECK(arrayd(10).size() == 10);
+  CHECK(arrayd(0).size() == 0);
 
-  array_d test(10);
+  arrayd test(10);
   test.resize(15);
   CHECK(test.size() == 15);
 

@@ -1,18 +1,18 @@
-#ifndef ARRAY_D_LIBRARY_H
-#define ARRAY_D_LIBRARY_H
+#ifndef ARRAYD_LIBRARY_H
+#define ARRAYD_LIBRARY_H
 
 #include <cstddef>
 #include <iosfwd>
 #include <array>
 
 
-class array_d{
+class arrayd{
 public:
-    array_d() = default;
-    explicit array_d(const std::ptrdiff_t size);
-    array_d(const array_d& rhs);
-    array_d& operator= (const array_d& rhs);
-    ~array_d();
+    arrayd() = default;
+    explicit arrayd(const std::ptrdiff_t size);
+    arrayd(const arrayd& rhs);
+    arrayd& operator= (const arrayd& rhs);
+    ~arrayd();
 
     double& operator[] (const std::ptrdiff_t i);
     const double& operator[] (const std::ptrdiff_t i) const;
@@ -28,4 +28,4 @@ private:
     double* data_ = nullptr;
 };
 
-#endif //ARRAY_D_LIBRARY_H
+#endif //ARRAYD_LIBRARY_H
