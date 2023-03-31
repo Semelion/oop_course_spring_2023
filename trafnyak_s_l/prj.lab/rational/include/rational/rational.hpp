@@ -1,5 +1,5 @@
-#ifndef rATIONAL_LIBRARY_H
-#define rATIONAL_LIBRARY_H
+#ifndef RATIONAL_LIBRARY_H
+#define RATIONAL_LIBRARY_H
 
 
 #include <cstdint>
@@ -7,63 +7,63 @@
 #include <algorithm>
 #include <iostream>
 
-class rational {
+class Rational {
 public:
-    rational() = default;
+    Rational() = default;
 
-    rational(const rational &) = default;
+    Rational(const Rational &) = default;
 
-    rational(rational &&) = default;
+    Rational(Rational &&) = default;
 
-    rational(const int32_t numerator) noexcept {
+    Rational(const int32_t numerator) noexcept {
         numerator_ = numerator;
         denominator_ = 1;
     }
 
-    rational(const int32_t numerator, const int32_t denominator) {
+    Rational(const int32_t numerator, const int32_t denominator) {
         if (denominator == 0) {
             throw std::invalid_argument("Error: divizon into 0");
         }
         normalize(numerator, denominator);
     }
 
-    ~rational() = default;
+    ~Rational() = default;
 
-    rational &operator=(const rational &) = default;
+    Rational &operator=(const Rational &) = default;
 
-    rational &operator=(rational &&) = default;
+    Rational &operator=(Rational &&) = default;
 
     [[nodiscard]] int32_t numerator() const noexcept { return numerator_; }
 
     [[nodiscard]] int32_t denomerator() const noexcept { return denominator_; }
 
-    bool operator==(const rational &rhs) const noexcept;
+    bool operator==(const Rational &rhs) const noexcept;
 
-    bool operator!=(const rational &rhs) const noexcept;
+    bool operator!=(const Rational &rhs) const noexcept;
 
-    bool operator>(const rational &rhs) const noexcept;
+    bool operator>(const Rational &rhs) const noexcept;
 
-    bool operator<(const rational &rhs) const noexcept;
+    bool operator<(const Rational &rhs) const noexcept;
 
-    bool operator>=(const rational &rhs) const noexcept;
+    bool operator>=(const Rational &rhs) const noexcept;
 
-    bool operator<=(const rational &rhs) const noexcept;
+    bool operator<=(const Rational &rhs) const noexcept;
 
-    rational operator-(const rational &rhs) const noexcept;
-    rational operator-() const noexcept;
+    Rational operator-(const Rational &rhs) const noexcept;
+    Rational operator-() const noexcept;
 
     explicit operator bool() const noexcept;
 
-    rational &operator*=(const rational &rhs) noexcept;
+    Rational &operator*=(const Rational &rhs) noexcept;
 
-    rational& operator+=(const rational& rhs);
-    rational& operator+=(const int rhs){
-        return operator+= (rational(rhs));
+    Rational& operator+=(const Rational& rhs);
+    Rational& operator+=(const int rhs){
+        return operator+= (Rational(rhs));
     }
 
-    rational &operator-=(const rational &rhs) noexcept;
+    Rational &operator-=(const Rational &rhs) noexcept;
 
-    rational &operator/=(const rational &rhs);
+    Rational &operator/=(const Rational &rhs);
 
     std::istream &read_from(std::istream &istrm) noexcept;
 
@@ -93,30 +93,30 @@ private:
     }
 };
 
-std::istream &operator>>(std::istream &istrm, rational &rhs) noexcept;
+std::istream &operator>>(std::istream &istrm, Rational &rhs) noexcept;
 
-std::ostream &operator<<(std::ostream &ostrm, const rational &rhs) noexcept;
+std::ostream &operator<<(std::ostream &ostrm, const Rational &rhs) noexcept;
 
-inline rational operator-(const rational &lhs, const rational &rhs) noexcept {
-    return rational(lhs) -= rhs;
+inline Rational operator-(const Rational &lhs, const Rational &rhs) noexcept {
+    return Rational(lhs) -= rhs;
 }
 
-inline rational operator+ (const rational& lhs, const rational& rhs){
-    return rational(lhs) += rhs;
+inline Rational operator+ (const Rational& lhs, const Rational& rhs){
+    return Rational(lhs) += rhs;
 }
-inline rational operator+ (const rational& lhs, const int rhs){
-    return rational(lhs) + rational(rhs);
+inline Rational operator+ (const Rational& lhs, const int rhs){
+    return Rational(lhs) + Rational(rhs);
 }
-inline rational operator+ (const int lhs, const rational& rhs){
-    return rational(lhs) + rational(rhs);
-}
-
-inline rational operator/(const rational &lhs, const rational &rhs) {
-    return rational(lhs) /= rhs;
+inline Rational operator+ (const int lhs, const Rational& rhs){
+    return Rational(lhs) + Rational(rhs);
 }
 
-inline rational operator*(const rational &lhs, const rational &rhs) noexcept {
-    return rational(lhs) *= rhs;
+inline Rational operator/(const Rational &lhs, const Rational &rhs) {
+    return Rational(lhs) /= rhs;
+}
+
+inline Rational operator*(const Rational &lhs, const Rational &rhs) noexcept {
+    return Rational(lhs) *= rhs;
 }
 
 #endif

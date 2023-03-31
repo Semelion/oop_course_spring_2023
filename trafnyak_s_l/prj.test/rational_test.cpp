@@ -5,62 +5,62 @@
 
 #include <sstream>
 
-TEST_CASE("[rational] - rational ctor") {
-  CHECK(rational() == rational(0, 1));
-  CHECK(rational(3) == rational(3, 1));
-  CHECK(rational(-3) == rational(-3, 1));
-  CHECK(rational(10, 6) == rational(5, 3));
-  CHECK(rational(-10, 6) == rational(-5, 3));
-  CHECK(rational(10, -6) == rational(-5, 3));
-  CHECK(rational(-10, -6) == rational(5, 3));
-  CHECK_THROWS(rational(1, 0));
-  rational r(-13,12);
+TEST_CASE("[Rational] - Rational ctor") {
+  CHECK(Rational() == Rational(0, 1));
+  CHECK(Rational(3) == Rational(3, 1));
+  CHECK(Rational(-3) == Rational(-3, 1));
+  CHECK(Rational(10, 6) == Rational(5, 3));
+  CHECK(Rational(-10, 6) == Rational(-5, 3));
+  CHECK(Rational(10, -6) == Rational(-5, 3));
+  CHECK(Rational(-10, -6) == Rational(5, 3));
+  CHECK_THROWS(Rational(1, 0));
+  Rational r(-13,12);
   CHECK(r.numerator() == -13);
   CHECK(r.denomerator() == 12);
 }
 
-TEST_CASE("[rational] - rational add") {
-  CHECK(rational(3, 2) + rational(5, 7) == rational(31, 14));
-  CHECK(rational(5, 7) + rational(3, 2) == rational(31, 14));
-  CHECK(rational() + rational() == rational());
-  CHECK(rational() + rational(29, 41) == rational(29, 41));
-  CHECK(rational(5, 1) + rational(3, 2) == rational(13, 2));
+TEST_CASE("[Rational] - Rational add") {
+  CHECK(Rational(3, 2) + Rational(5, 7) == Rational(31, 14));
+  CHECK(Rational(5, 7) + Rational(3, 2) == Rational(31, 14));
+  CHECK(Rational() + Rational() == Rational());
+  CHECK(Rational() + Rational(29, 41) == Rational(29, 41));
+  CHECK(Rational(5, 1) + Rational(3, 2) == Rational(13, 2));
 }
 
-TEST_CASE("[rational] - rational subtract") {
-  CHECK(rational(31, 14) - rational(5, 7) == rational(3, 2));
-  CHECK(rational(25, 7) - rational(2, 9) == rational(211, 63));
-  CHECK(rational(2, 3) - rational(7, 4) == rational(-13, 12));
+TEST_CASE("[Rational] - Rational subtract") {
+  CHECK(Rational(31, 14) - Rational(5, 7) == Rational(3, 2));
+  CHECK(Rational(25, 7) - Rational(2, 9) == Rational(211, 63));
+  CHECK(Rational(2, 3) - Rational(7, 4) == Rational(-13, 12));
 }
 
-TEST_CASE("[rational] - rational division") {
-  CHECK(rational(5, 2) / rational(5, 2) == rational(1, 1));
-  CHECK(rational(3, 2) / rational(9, 8) == rational(4, 3));
-  CHECK_THROWS(rational(3, 2) / rational(5, 0));
+TEST_CASE("[Rational] - Rational division") {
+  CHECK(Rational(5, 2) / Rational(5, 2) == Rational(1, 1));
+  CHECK(Rational(3, 2) / Rational(9, 8) == Rational(4, 3));
+  CHECK_THROWS(Rational(3, 2) / Rational(5, 0));
 }
 
-TEST_CASE("[rational] - rational minus") {
-  CHECK(-rational() == rational());
-  CHECK(rational(-5, 3) == -rational(5, 3));
-  CHECK(rational(25, 7) == -(-(rational(25, 7))));
-  CHECK(rational(29, 41) == -rational(-29, 41));
+TEST_CASE("[Rational] - Rational minus") {
+  CHECK(-Rational() == Rational());
+  CHECK(Rational(-5, 3) == -Rational(5, 3));
+  CHECK(Rational(25, 7) == -(-(Rational(25, 7))));
+  CHECK(Rational(29, 41) == -Rational(-29, 41));
 }
 
-TEST_CASE("[rational] - I/O") {
+TEST_CASE("[Rational] - I/O") {
 
   SUBCASE("Output") {
 
     std::stringstream sstrm;
 
     SUBCASE("Simple") {
-      sstrm << rational(23, 7);
+      sstrm << Rational(23, 7);
       CHECK(sstrm.str() == "23/7");
     }
 
     sstrm.clear();
 
     SUBCASE("Default constructor") {
-      sstrm << rational();
+      sstrm << Rational();
       CHECK(sstrm.str() == "0/1");
     }
 
@@ -68,14 +68,14 @@ TEST_CASE("[rational] - I/O") {
 
 
     SUBCASE("Negative") {
-      sstrm << -rational(3, 8);
+      sstrm << -Rational(3, 8);
       CHECK(sstrm.str() == "-3/8");
     }
 
     sstrm.clear();
 
     SUBCASE("Negative with reduce") {
-      sstrm << rational(-8, 2);
+      sstrm << Rational(-8, 2);
       CHECK(sstrm.str() == "-4/1");
     }
 
@@ -83,14 +83,14 @@ TEST_CASE("[rational] - I/O") {
 
   SUBCASE("Correct inputs") {
 
-    rational r;
+    Rational r;
     std::stringstream sstrm;
 
     SUBCASE("Simple") {
       sstrm.str("2/3");
       sstrm >> r;
       CHECK(sstrm.rdstate() == std::ios_base::eofbit);
-      CHECK(r == rational(2, 3));
+      CHECK(r == Rational(2, 3));
     }
 
     sstrm.clear();
@@ -99,7 +99,7 @@ TEST_CASE("[rational] - I/O") {
       sstrm.str("36/48");
       sstrm >> r;
       CHECK(sstrm.rdstate() == std::ios_base::eofbit);
-      CHECK(r == rational(3, 4));
+      CHECK(r == Rational(3, 4));
     }
 
     sstrm.clear();
@@ -108,20 +108,20 @@ TEST_CASE("[rational] - I/O") {
       sstrm.str("-8/7");
       sstrm >> r;
       CHECK(sstrm.rdstate() == std::ios_base::eofbit);
-      CHECK(r == rational(-8, 7));
+      CHECK(r == Rational(-8, 7));
     }
   }
 
   SUBCASE("Correct inputs with extra spaces on begin and trash on end") {
 
-    rational r;
+    Rational r;
     std::stringstream sstrm;
 
     SUBCASE("Extra spaces on begin") {
       sstrm.str(" 1/3");
       sstrm >> r;
       CHECK(sstrm.rdstate() == std::ios_base::eofbit);
-      CHECK(r == rational(1, 3));
+      CHECK(r == Rational(1, 3));
     }
 
     sstrm.clear();
@@ -130,7 +130,7 @@ TEST_CASE("[rational] - I/O") {
       sstrm.str("   -3/4");
       sstrm >> r;
       CHECK(sstrm.rdstate() == std::ios_base::eofbit);
-      CHECK(r == rational(-3, 4));
+      CHECK(r == Rational(-3, 4));
     }
 
     sstrm.clear();
@@ -139,7 +139,7 @@ TEST_CASE("[rational] - I/O") {
       sstrm.str(" 5/9  ");
       sstrm >> r;
       CHECK(sstrm.rdstate() == std::ios_base::goodbit);
-      CHECK(r == rational(5, 9));
+      CHECK(r == Rational(5, 9));
     }
 
     sstrm.clear();
@@ -148,7 +148,7 @@ TEST_CASE("[rational] - I/O") {
       sstrm.str(" -3/9  ");
       sstrm >> r;
       CHECK(sstrm.rdstate() == std::ios_base::goodbit);
-      CHECK(r == rational(-1, 3));
+      CHECK(r == Rational(-1, 3));
     }
 
     sstrm.clear();
@@ -157,7 +157,7 @@ TEST_CASE("[rational] - I/O") {
       sstrm.str(" 23/9abc");
       sstrm >> r;
       CHECK(sstrm.rdstate() == std::ios_base::goodbit);
-      CHECK(r == rational(23, 9));
+      CHECK(r == Rational(23, 9));
     }
 
     sstrm.clear();
@@ -166,7 +166,7 @@ TEST_CASE("[rational] - I/O") {
       sstrm.str("3/7 ");
       sstrm >> r;
       CHECK(sstrm.rdstate() == std::ios_base::goodbit);
-      CHECK(r == rational(3, 7));
+      CHECK(r == Rational(3, 7));
     }
 
     sstrm.clear();
@@ -175,12 +175,12 @@ TEST_CASE("[rational] - I/O") {
       sstrm.str("9/2&");
       sstrm >> r;
       CHECK(sstrm.rdstate() == std::ios_base::goodbit);
-      CHECK(r == rational(9, 2));
+      CHECK(r == Rational(9, 2));
     }
   }
 
   SUBCASE("Uncorrect inputs") {
-    rational r;
+    Rational r;
     std::stringstream sstrm;
 
     SUBCASE("Trash") {
