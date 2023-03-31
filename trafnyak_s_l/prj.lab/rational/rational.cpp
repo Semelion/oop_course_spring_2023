@@ -13,8 +13,8 @@
 //}
 
 int32_t Rational::NOD(int a, int b) {
-    a = abs(a);
-    b = abs(b);
+    a = std::abs(a);
+    b = std::abs(b);
     if (a == b || a == 0) {
         return b;
     }

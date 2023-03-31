@@ -46,6 +46,13 @@ TEST_CASE("[Rational] - Rational minus") {
   CHECK(Rational(29, 41) == -Rational(-29, 41));
 }
 
+TEST_CASE("[Rational] - Rational with ints") {
+  CHECK(Rational() + 5 == Rational(5));
+  CHECK(Rational() + 5 == Rational(5, 1));
+  CHECK(Rational(1, 2) + 2 == Rational(5, 2));
+  CHECK(3 + Rational(3, 5) == Rational(18, 5));
+}
+
 TEST_CASE("[Rational] - I/O") {
 
   SUBCASE("Output") {
