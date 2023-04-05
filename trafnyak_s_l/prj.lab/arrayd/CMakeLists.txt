@@ -1,6 +1,6 @@
 #cmake_minimum_required(VERSION 3.24)
 
-add_library(arrayd arrayd.cpp include/arrayd/arrayd.hpp)
+add_library(arrayd src/arrayd.cpp include/arrayd/arrayd.hpp)
 
 target_include_directories(arrayd PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>

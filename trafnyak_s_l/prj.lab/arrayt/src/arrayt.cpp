@@ -1,4 +1,4 @@
-#include "../include/arrayt/arrayt.hpp"
+#include <../include/arrayt/arrayt.hpp>
 
 //int main(){
 //    ArrayT test(15);
