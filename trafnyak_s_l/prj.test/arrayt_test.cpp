@@ -29,7 +29,7 @@ TEST_CASE("[arrayd] - arrayd2") {
   arrayd mass1(10);
 
   for(int i = 0; i < mass1.size(); i++){
-    mass1[i] = 100/i - 12*i + std::pow(2, i);
+    mass1[i] = std::pow(2, i);
   }
 
   arrayd mass2 = mass1;

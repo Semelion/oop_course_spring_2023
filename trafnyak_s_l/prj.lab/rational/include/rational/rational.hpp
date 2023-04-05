@@ -1,6 +1,5 @@
-#ifndef RATIONAL_LIBRARY_H
-#define RATIONAL_LIBRARY_H
-
+#ifndef UNTITLED_RATIONAL_H
+#define UNTITLED_RATIONAL_H
 
 #include <cstdint>
 #include <sstream>
