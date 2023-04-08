@@ -96,9 +96,9 @@ std::istream &operator>>(std::istream &istrm, Rational &rhs) noexcept;
 
 std::ostream &operator<<(std::ostream &ostrm, const Rational &rhs) noexcept;
 
-inline Rational operator-(const Rational &lhs, const Rational &rhs) noexcept {
-    return Rational(lhs) -= rhs;
-}
+// inline Rational operator-(const Rational &lhs, const Rational &rhs) noexcept {
+//     return Rational(lhs) -= rhs;
+// }
 
 inline Rational operator+ (const Rational& lhs, const Rational& rhs){
     return Rational(lhs) += rhs;
