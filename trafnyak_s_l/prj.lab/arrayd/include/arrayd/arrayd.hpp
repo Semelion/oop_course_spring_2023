@@ -6,18 +6,18 @@
 #include <array>
 
 
-class arrayd{
+class ArrayD{
 public:
-    arrayd() = default;
-    explicit arrayd(const std::ptrdiff_t size);
-    arrayd(const arrayd& rhs);
-    arrayd& operator= (const arrayd& rhs);
-    ~arrayd();
+    ArrayD() = default;
+    explicit ArrayD(const std::ptrdiff_t size);
+    ArrayD(const ArrayD& rhs);
+    ArrayD& operator= (const ArrayD& rhs);
+    ~ArrayD();
 
     double& operator[] (const std::ptrdiff_t i);
     const double& operator[] (const std::ptrdiff_t i) const;
     void resize (const std::ptrdiff_t size);
-    [[nodiscard]] std::ptrdiff_t size() const { return size_; };
+    [[nodiscard]] std::ptrdiff_t ssize() const { return size_; };
     [[nodiscard]] std::ptrdiff_t capacity() const { return capacity_; };
     void insert (const std::ptrdiff_t index, const double value);
     void remove (const std::ptrdiff_t index, const double value);

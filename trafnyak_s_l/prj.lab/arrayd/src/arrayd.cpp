@@ -4,7 +4,7 @@
 #include <stdexcept>
 
 //int main(){
-//    arrayd test(15);
+//    ArrayD test(15);
 //    test.resize(10);
 //    for(int i = 0; i < 10; i++){
 //        test[i] = i;
@@ -15,26 +15,26 @@
 //    }
 //}
 
-arrayd::arrayd(const arrayd& rhs){
-    size_ = rhs.size();
+ArrayD::ArrayD(const ArrayD& rhs){
+    size_ = rhs.ssize();
     capacity_ = rhs.capacity();
     data_ = new double [capacity_];
-    for (size_t i = 0; i < size(); i++)
+    for (size_t i = 0; i < ssize(); i++)
         *(data_ + i) = *(rhs.data_ + i);
 }
-arrayd::~arrayd(){
+ArrayD::~ArrayD(){
     delete[] data_;
 }
-arrayd& arrayd::operator= (const arrayd& rhs){
+ArrayD& ArrayD::operator= (const ArrayD& rhs){
     if(this == &rhs){
         return *this;
     }
-    if (capacity_ >= rhs.size())
+    if (capacity_ >= rhs.ssize())
         size_ = rhs.size_;
     else
     {
-        capacity_ = 2 * rhs.size() + 1;
-        size_ = rhs.size();
+        capacity_ = 2 * rhs.ssize() + 1;
+        size_ = rhs.ssize();
         data_ = new double [capacity_];
     }
     for (std::ptrdiff_t i = 0; i < size_; i++)
@@ -43,7 +43,7 @@ arrayd& arrayd::operator= (const arrayd& rhs){
     }
     return *this;
 }
-arrayd::arrayd(const std::ptrdiff_t size){
+ArrayD::ArrayD(const std::ptrdiff_t size){
     if (size < 0)
         throw std::logic_error ("size is negative");
     capacity_ = 2 * size + 1;
@@ -52,7 +52,7 @@ arrayd::arrayd(const std::ptrdiff_t size){
     for (std::ptrdiff_t i = 0; i < size_; i++)
         *(data_ + i) = 0.0f;
 }
-void arrayd::resize(const std::ptrdiff_t size)
+void ArrayD::resize(const std::ptrdiff_t size)
 {
     if (size <= 0)
         throw std::logic_error("size isn't normal");
@@ -68,21 +68,21 @@ void arrayd::resize(const std::ptrdiff_t size)
         *(data_ + i) = 0.0f;
     size_ = size;
 }
-double& arrayd::operator[] (const std::ptrdiff_t i)
+double& ArrayD::operator[] (const std::ptrdiff_t i)
 {
-    if (i < 0 || i >= size())
+    if (i < 0 || i >= ssize())
         throw std::out_of_range("Wrong Index");
     return *(data_ + i);
 }
-const double& arrayd::operator[] (const std::ptrdiff_t i) const
+const double& ArrayD::operator[] (const std::ptrdiff_t i) const
 {
-    if (i < 0 || i >= size())
+    if (i < 0 || i >= ssize())
         throw std::out_of_range("Wrong Index");
     return *(data_ + i);
 
 }
 
-void arrayd::insert(const std::ptrdiff_t index, const double value) {
+void ArrayD::insert(const std::ptrdiff_t index, const double value) {
     if (index < 0 || index >= size_)
         throw std::out_of_range("Wrong Index");
     this ->resize(size_ + 1);
@@ -92,13 +92,13 @@ void arrayd::insert(const std::ptrdiff_t index, const double value) {
     *(data_ + index) = value;
 }
 
-void arrayd::remove(const std::ptrdiff_t index, const double value) {
+void ArrayD::remove(const std::ptrdiff_t index, const double value) {
     if (index < 0 || index >= size_)
         throw std::out_of_range("Wrong Index");
     for(std::ptrdiff_t i = index; i < size_ - 1; i++){
         *(data_ + i) = *(data_ + i + 1);
     }
     *(data_ + index) = value;
-    this ->resize(size() - 1);
+    this ->resize(ssize() - 1);
 }
 
