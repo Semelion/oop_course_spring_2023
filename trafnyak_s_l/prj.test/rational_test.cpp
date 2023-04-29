@@ -544,3 +544,10 @@ TEST_CASE("[rational] - I/O") {
 
     }
 }
+
+TEST_CASE("[Rational] - operator bool()") {
+    Rational r;
+    CHECK(!r);
+    r = {1,1};
+    CHECK(r);
+}

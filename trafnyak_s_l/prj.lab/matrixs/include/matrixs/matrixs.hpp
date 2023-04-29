@@ -32,8 +32,12 @@ public:
     [[nodiscard]] int& at(const SizeType);
 
     [[nodiscard]] const SizeType& ssize() const noexcept;
-    [[nodiscard]] std::ptrdiff_t nRows() const noexcept;
-    [[nodiscard]] std::ptrdiff_t nCols() const noexcept;
+    [[nodiscard]] std::ptrdiff_t nRows() const noexcept{
+        return rows_;
+    }
+    [[nodiscard]] std::ptrdiff_t nCols() const noexcept{
+        return cols_;
+    }
 
 };
 

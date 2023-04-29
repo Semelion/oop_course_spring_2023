@@ -137,6 +137,11 @@ public:
     bool operator>(const Rational& rhs) const;
     bool operator<(const Rational& rhs) const;
 
+    explicit operator bool() const noexcept{
+        return num_ != 0;
+    }
+
+
     Rational& operator+=(const Rational& rhs);
     Rational& operator+=(const int rhs){
         return operator+= (Rational(rhs));

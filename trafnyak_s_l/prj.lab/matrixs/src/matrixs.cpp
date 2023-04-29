@@ -1,4 +1,4 @@
-#include <../matrixs/matrixs.hpp>
+#include <matrixs/matrixs.hpp>
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -96,14 +96,7 @@ int& MatrixS::at(const MatrixS::SizeType s) {
     return data_[data_[std::get<0>(s)] + std::get<1>(s)];
 }
 
-[[nodiscard]] std::ptrdiff_t MatrixS::nRows() const noexcept
-{
-    return rows_;
-}
-[[nodiscard]] std::ptrdiff_t MatrixS::nCols() const noexcept
-{
-    return cols_;
-}
+
 
 void MatrixS::resize(const std::ptrdiff_t row, const std::ptrdiff_t col)
 {
