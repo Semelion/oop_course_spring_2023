@@ -1,12 +1,7 @@
-#cmake_minimum_required(VERSION 3.24)
-
-add_library(arrayt src/arrayt.cpp include/arrayt/arrayt.hpp)
-
-target_include_directories(arrayt PUBLIC
+add_library(arrayt INTERFACE include/arrayt/arrayt.hpp)
+set_property(TARGET arrayt PROPERTY CXX_STANDARD 20)
+target_include_directories(arrayt PUBLIC INTERFACE
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>
 )
 install(TARGETS arrayt)
-
-set(CMAKE_CXX_STANDARD 20)
-
