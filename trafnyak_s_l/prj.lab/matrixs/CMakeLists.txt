@@ -1,5 +1,3 @@
-#cmake_minimum_required(VERSION 3.24)
-
 add_library(matrixs src/matrixs.cpp include/matrixs/matrixs.hpp)
 
 target_include_directories(matrixs PUBLIC
@@ -9,4 +7,3 @@ target_include_directories(matrixs PUBLIC
 install(TARGETS matrixs)
 
 set(CMAKE_CXX_STANDARD 20)
-
