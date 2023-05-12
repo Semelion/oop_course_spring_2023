@@ -18,7 +18,7 @@ namespace geo2d{
 			}
 			std::string get_value(){
 
-				std::string out = "(" + std::to_string(x_start) + ", " + std::to_string(y_start);
+				std::string out = "(" + std::to_string(x_start) + ", " + std::to_string(y_start) + ")\t(" + std::to_string(x_end) + ", " + std::to_string(y_end) + ")";
 				return out;
 			}
 		private:
