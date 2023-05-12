@@ -1,3 +1,0 @@
-/home/semelion/oop_course_spring_2023/trafnyak_s_l/prj.lab/orto/CMakeFiles/main.dir
-/home/semelion/oop_course_spring_2023/trafnyak_s_l/prj.lab/orto/CMakeFiles/edit_cache.dir
-/home/semelion/oop_course_spring_2023/trafnyak_s_l/prj.lab/orto/CMakeFiles/rebuild_cache.dir
