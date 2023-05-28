@@ -1,0 +1,23 @@
+{
+  "wifi": {
+    "ssid": "Wokwi-GUEST",
+    "pasword": ""
+  },
+  "mqtt_broker": {
+    "MQTT_BROKER": "broker.hivemq.com",
+    "MQTT_PORT": "1883",
+    "MQTT_NAME_OF_DEVICE": "esp32",
+    "MQTT_LOGIN": "",
+    "MQTT_PW": ""
+  },
+  "button": [
+    {"name": "but1", "topic": "room1"},
+    {"name": "but2", "topic": "room2"},
+    {"name": "but3", "topic": "room3"}
+  ],
+  "relay": [
+    {"name": "relay1", "topic": "room1"},
+    {"name": "relay2", "topic": "room2"},
+    {"name": "relay3", "topic": "room3"}
+  ]
+}

@@ -1,0 +1,54 @@
+void connect(){
+	WiFi.begin(WIFI_SSID, WIFI_PW); // Start Wi-Fi connection
+	while (WiFi.status() != WL_CONNECTED) { // Waiting for connection success
+		Serial.println("Connecting to WiFi..");
+	}
+	Serial.println("Connected to the WiFi network");
+	delay(100);
+	digitalWrite(LED_BUILTIN, LOW); //Turn on the light to indicate Wi-Fi success
+	Serial.println("-------------------------");
+	Serial.println("Hello from ESP8266");
+	Serial.print("Connected to hotspot: ");
+	Serial.println(WIFI_SSID);
+	Serial.print("IP address is: ");
+	Serial.println(WiFi.localIP());
+	Serial.println("-------------------------");
+	// client.setSocketTimeout(60);
+	// client.setKeepAlive(90);
+	client.setServer(MQTT_BROKER, MQTT_PORT); //Start MQTT connection
+	client.setCallback(callback);
+	while (!client.connected()) {
+		Serial.println("Connecting to MQTT...");
+		if (client.connect("ESP8266_Receive", "xsxvxcnt", "xrV4AvRONNWg" )) { //Sign in to the broker
+			Serial.println("Connected to broker");
+		} else {
+			Serial.print("failed with state ");
+			Serial.print(client.state());
+			delay(2000);
+		}
+	}
+}
+
+void callback(char* topic, byte* payload, unsigned int length) {
+  Serial.print("Message arrived in topic: "); // Print out the topic
+  Serial.println(topic);
+
+  Serial.print("Message:"); //Print Received message
+  for (int i = 0; i < length; i++) {
+    Serial.print((char)payload[i]);
+  }
+  Serial.println();
+  Serial.println("-----------------------");
+  if(topic = "LED"){
+    state = bool((char)payload[0] - '0');
+    digitalWrite(23, state);
+  }
+}
+
+bool publish_button_value(char* topic, bool value){
+  if(value){
+    return client.publish(topic, "0");
+  }else{
+    return client.publish(topic, "1");
+  }
+}

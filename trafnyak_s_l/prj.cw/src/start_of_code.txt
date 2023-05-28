@@ -1,0 +1,8 @@
+/* ********************************************** 
+Code generate by generator_for_esp32_mqtt
+https://github.com/Semelion/generator_for_esp32_mqtt
+developed by Semelion 
+********************************************** */
+
+#include <WiFi.h>
+#include <PubSubClient.h>
