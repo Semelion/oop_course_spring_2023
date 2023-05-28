@@ -1,3 +1,6 @@
+///////////////////////
+///@brief program for generate code for microcontrollers esp, with protocol mqtt
+///@endcode
 #include <fstream>
 #include <string>
 #include <iostream>
@@ -8,7 +11,7 @@
 int pins[11] = {23, 22, 21, 19, 18, 5, 17, 16, 4, 2, 15};
 int count_used_pins = 0;
 
-int main () {
+int main (int argc, char* argv[]) {
 	//OPEN FILES//
 	std::ofstream esp_code;
 	esp_code.open ("smart_house_mqtt.ino");
@@ -19,7 +22,7 @@ int main () {
 	std::ifstream functions;
 	functions.open("src/function.txt");
 
-	std::ifstream config_file("src/config.json");
+	std::ifstream config_file(argv[1]);
 	nlohmann::json config = nlohmann::json::parse(config_file);
 
 	//WRITE COMMENTS AND NOTES IN TOP OF CODE FILE//
