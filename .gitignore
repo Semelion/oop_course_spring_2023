@@ -3,3 +3,5 @@ bin/
 build/
 *.xml
 array_d
+cmake-build-debug/
+old_libs/
