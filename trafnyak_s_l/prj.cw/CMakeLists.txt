@@ -1,6 +1,11 @@
 set(CMAKE_TOOLCHAIN_FILE "/home/semelion/vcpkg/scripts/buildsystems/vcpkg.cmake")
+
+add_subdirectory(lib)
+
 add_executable(course_work main.cpp)
+
 target_link_libraries(course_work PRIVATE nlohmann_json::nlohmann_json)
+target_link_libraries(course_work PRIVATE course_work_lib)
 
 install(DIRECTORY src/ DESTINATION ${CMAKE_INSTALL_BINDIR}/)
 

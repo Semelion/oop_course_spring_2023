@@ -19,5 +19,6 @@
     {"name": "relay1", "topic": "room1"},
     {"name": "relay2", "topic": "room2"},
     {"name": "relay3", "topic": "room3"}
-  ]
+  ],
+  "Serial_speed" : 115200
 }
