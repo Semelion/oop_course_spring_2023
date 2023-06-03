@@ -20,5 +20,5 @@ find_package(nlohmann_json CONFIG REQUIRED)
 find_package(doctest REQUIRED)
 
 add_subdirectory(prj.cw)
-add_subdirectory(prj.lab)
-add_subdirectory(prj.test)
+#add_subdirectory(prj.lab)
+#add_subdirectory(prj.test)

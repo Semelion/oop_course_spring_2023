@@ -12,20 +12,45 @@
 #include <vector>
 #include <nlohmann/json.hpp>
 
-
+/**
+* @brief Класс для генерации кода в файл по параметрам
+*/
 class generator{
 public:
     generator() = default;
+
+    /**
+    * @brief перегруженый оператор присвоения
+    * @param json_src_file файл конфигурации в формате json
+    * @param type_of_mk вариация микроконтроллера семейства ESP
+    * @param out_code_file файл в который запишется сгенерированный код
+    * @param start_of_code_src_file фацйл в котором содержится начальный комментарий и библиотеки
+    *
+    */
+
     generator(std::string json_src_file, std::string type_of_mk, std::string out_code_file, std::string start_of_code_src_file, std::string functions_src_file);
     generator& operator=(const generator& rhs) = default;
     ~generator() = default;
 
+    //@brief Функция проверки соответсвия количества пинов на плате и количества кнопок и реле
     bool chek_pins();
+
+    //@brief Функция генерирует и записывает комментарии в заголовке
     bool generate_notes();
+
+    //@brief Функция генерирует и записывает все необходимые дефайны и переменные
     bool generate_defines();
+
+    //@brief Функция генерирует и записывает  функцию setup
     bool generate_setup();
+
+    //@brief Функция генерирует и записывает функцию loop
     bool generate_loop();
+
+    //@brief Функция генерирует и записывает функции используемые для подключения к WIFI и MQTT брокеру и callback
     bool generate_functions();
+
+    //@brief Функция закрывает открытые файлы
     void close_files();
 
 private:
