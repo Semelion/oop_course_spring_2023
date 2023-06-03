@@ -7,7 +7,27 @@ add_executable(course_work main.cpp)
 target_link_libraries(course_work PRIVATE nlohmann_json::nlohmann_json)
 target_link_libraries(course_work PRIVATE course_work_lib)
 
-install(DIRECTORY src/ DESTINATION ${CMAKE_INSTALL_BINDIR}/)
+target_include_directories(course_work PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
+        $<INSTALL_INTERFACE:src>  # <prefix>/include/mylib
+        )
+
+install(TARGETS course_work DESTINATION bin)
+#install(TARGETS src/ DESTINATION bin)
+
+#install(DIRECTORY src/ DESTINATION bin
+#        FILES_MATCHING PATTERN "*.txt")
+
+#add_custom_target(copy_target ALL
+#        ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_RUNTIME_OUTPUT_DIR}/src
+#        DEPENDS course_work
+#        COMMENT "Copy neded folder to compiling executable"
+#        )
+#file(GLOB txt_files "${PROJECT_SOURCE_DIR}/src/*.txt")
+#file(GLOB json_files "${PROJECT_SOURCE_DIR}/src/config.json")
+#install(TARGETS txt_files DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIR})
+#install(TARGETS json_files DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIR})
+#install(DIRECTORY src/ DESTINATION ${CMAKE_INSTALL_BINDIR}/)
 
 #add_custom_command(
 #        TARGET ${cours_spring_2023}  POST_BUILD

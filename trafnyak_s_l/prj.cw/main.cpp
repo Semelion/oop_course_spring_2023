@@ -161,8 +161,8 @@ int main (int argc, char* argv[]) {
 //    functions.close();
 //	start_file.close();
 //	esp_code.close();
-
-    generator gen(argv[1]);
+    generator gen(argv[1], argv[2]);
+    gen.chek_pins();
     gen.generate_notes();
     gen.generate_defines();
     gen.generate_setup();

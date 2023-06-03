@@ -9,16 +9,18 @@
 #include <string>
 #include <iostream>
 #include <set>
+#include <vector>
 #include <nlohmann/json.hpp>
 
 
 class generator{
 public:
     generator() = default;
-    generator(std::string json_src_file, std::string out_code_file, std::string start_of_code_src_file, std::string functions_src_file);
+    generator(std::string json_src_file, std::string type_of_mk, std::string out_code_file, std::string start_of_code_src_file, std::string functions_src_file);
     generator& operator=(const generator& rhs) = default;
     ~generator() = default;
 
+    bool chek_pins();
     bool generate_notes();
     bool generate_defines();
     bool generate_setup();
@@ -27,8 +29,11 @@ public:
     void close_files();
 
 private:
-    int pins[11] = {23, 22, 21, 19, 18, 5, 17, 16, 4, 2, 15};// конфиг под плату
+    std::vector<int> pins;
+//    int pins[11] = {23, 22, 21, 19, 18, 5, 17, 16, 4, 2, 15};// конфиг под плату
     int count_used_pins = 0;
+    std::string tupe_of_esp = "esp32";
+
     std::ofstream esp_code;
     std::ifstream start_file;
     std::ifstream functions;
