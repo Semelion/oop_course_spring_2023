@@ -20,5 +20,9 @@ find_package(nlohmann_json CONFIG REQUIRED)
 find_package(doctest REQUIRED)
 
 add_subdirectory(prj.cw)
-#add_subdirectory(prj.lab)
-#add_subdirectory(prj.test)
+add_subdirectory(prj.lab)
+add_subdirectory(prj.test)
+
+
+#set(source ${CMAKE_CURRENT_SOURCE_DIR}/prj.cw/src)
+#set(copy ${CMAKE_BINARY_DIR}/src)

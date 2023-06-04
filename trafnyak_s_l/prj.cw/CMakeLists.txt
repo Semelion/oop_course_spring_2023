@@ -12,7 +12,16 @@ target_include_directories(course_work PUBLIC
         $<INSTALL_INTERFACE:src>  # <prefix>/include/mylib
         )
 
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src DESTINATION ${CMAKE_BINARY_DIR})
+
 install(TARGETS course_work DESTINATION bin)
+
+add_custom_target(install_${PROJECT_NAME}
+        ${CMAKE_COMMAND} -DCMAKE_INSTALL_CONFIG_NAME=${CMAKE_BUILD_TYPE}
+        -P cmake_install.cmake
+        )
+
+#configure_file(${source}  ${copy} COPYONLY)
 #install(TARGETS src/ DESTINATION bin)
 
 #install(DIRECTORY src/ DESTINATION bin
