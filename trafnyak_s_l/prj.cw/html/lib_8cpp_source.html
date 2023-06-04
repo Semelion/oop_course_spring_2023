@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Кодогенератор для IoT: lib/lib.cpp Source File</title>
+<title>course_work: lib/lib.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -24,8 +24,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="svklmdvlkm_photo-resizer.ru.jpg"/></td>
   <td id="projectalign">
-   <div id="projectname">Кодогенератор для IoT<span id="projectnumber">&#160;1.2</span>
+   <div id="projectname">course_work<span id="projectnumber">&#160;1.2</span>
    </div>
   </td>
  </tr>
@@ -92,12 +93,12 @@ $(document).ready(function(){initNavTree('lib_8cpp_source.html',''); initResizab
   <div class="headertitle"><div class="title">lib.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="lib_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by semelion on 6/2/23.</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="course__work_8hpp.html">course_work.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;course_work.hpp&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classgenerator.html#a207fb1cd7f162976df2ed61b8832de65">    6</a></span><a class="code hl_function" href="classgenerator.html#a580092bc5938b5a6b6a7b3da0553ba84">generator::generator</a>(std::string json_src_file = <span class="stringliteral">&quot;src/config.json&quot;</span>, std::string type_of_mk = <span class="stringliteral">&quot;ESP32&quot;</span>, std::string out_code_file = <span class="stringliteral">&quot;smart_house_mqtt.ino&quot;</span>,</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classgenerator.html#a207fb1cd7f162976df2ed61b8832de65">    6</a></span>generator::generator(std::string json_src_file = <span class="stringliteral">&quot;src/config.json&quot;</span>, std::string type_of_mk = <span class="stringliteral">&quot;ESP32&quot;</span>, std::string out_code_file = <span class="stringliteral">&quot;smart_house_mqtt.ino&quot;</span>,</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>                     std::string start_of_code_src_file = <span class="stringliteral">&quot;src/start_of_code.txt&quot;</span>, std::string functions_src_file = <span class="stringliteral">&quot;src/function.txt&quot;</span>) {</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    esp_code.open (out_code_file);</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    start_file.open(start_of_code_src_file);</div>
@@ -120,7 +121,7 @@ $(document).ready(function(){initNavTree('lib_8cpp_source.html',''); initResizab
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        std::cerr &lt;&lt; <span class="stringliteral">&quot;Wrong count of pins, esp has fewer pins&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    }</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classgenerator.html#af31cdd2ff73a106313a84349687192cd">   30</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classgenerator.html#af31cdd2ff73a106313a84349687192cd">generator::chek_pins</a>(){</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keywordtype">bool</span> generator::chek_pins(){</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">if</span>(pins.size() &gt;= config[<span class="stringliteral">&quot;button&quot;</span>].size() + config[<span class="stringliteral">&quot;relay&quot;</span>].size())</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordflow">else</span>{</div>
@@ -128,7 +129,7 @@ $(document).ready(function(){initNavTree('lib_8cpp_source.html',''); initResizab
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    }</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classgenerator.html#a106381345249cafbfde4cd2f2054d825">   39</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classgenerator.html#a106381345249cafbfde4cd2f2054d825">generator::generate_notes</a>() {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keywordtype">bool</span> generator::generate_notes() {</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">if</span> (esp_code.is_open() &amp;&amp; start_file.is_open()) {</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        std::string line;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">while</span> (std::getline(start_file, line)) {</div>
@@ -141,7 +142,7 @@ $(document).ready(function(){initNavTree('lib_8cpp_source.html',''); initResizab
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>}</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classgenerator.html#abf0c1fd69eae589840062002e0a6396b">   53</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classgenerator.html#abf0c1fd69eae589840062002e0a6396b">generator::generate_defines</a>() {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keywordtype">bool</span> generator::generate_defines() {</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordflow">if</span> (esp_code.is_open() &amp;&amp; config_file.is_open()) {</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        esp_code &lt;&lt; <span class="stringliteral">&quot;#define WIFI_SSID\t&quot;</span> &lt;&lt; config[<span class="stringliteral">&quot;wifi&quot;</span>][<span class="stringliteral">&quot;ssid&quot;</span>] &lt;&lt; std::endl;</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        esp_code &lt;&lt; <span class="stringliteral">&quot;#define WIFI_PW\t&quot;</span> &lt;&lt; config[<span class="stringliteral">&quot;wifi&quot;</span>][<span class="stringliteral">&quot;pasword&quot;</span>] &lt;&lt; std::endl;</div>
@@ -187,7 +188,7 @@ $(document).ready(function(){initNavTree('lib_8cpp_source.html',''); initResizab
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    }</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>}</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="classgenerator.html#a548c695d25c28bd5d5a752f218abc338">  100</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classgenerator.html#a548c695d25c28bd5d5a752f218abc338">generator::generate_setup</a>() {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keywordtype">bool</span> generator::generate_setup() {</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordflow">if</span> (esp_code.is_open() &amp;&amp; config_file.is_open()) {</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        esp_code &lt;&lt; <span class="stringliteral">&quot;void setup() {\n&quot;</span>;</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        esp_code &lt;&lt; <span class="stringliteral">&quot;\tSerial.begin(&quot;</span> &lt;&lt; config[<span class="stringliteral">&quot;Serial_speed&quot;</span>] &lt;&lt; <span class="stringliteral">&quot;);\n\n&quot;</span>;</div>
@@ -212,7 +213,7 @@ $(document).ready(function(){initNavTree('lib_8cpp_source.html',''); initResizab
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    }</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>}</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="classgenerator.html#a18c71e3a76126427cdf6fb7a28b34aed">  126</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classgenerator.html#a18c71e3a76126427cdf6fb7a28b34aed">generator::generate_loop</a>() {</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keywordtype">bool</span> generator::generate_loop() {</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordflow">if</span> (esp_code.is_open() &amp;&amp; config_file.is_open()) {</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        esp_code &lt;&lt; <span class="stringliteral">&quot;\nvoid loop(){\n&quot;</span>;</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        esp_code &lt;&lt; <span class="stringliteral">&quot;\tif (!client.connected())\n\t\tconnect();\n\telse\n\t\tclient.loop();\n&quot;</span>;</div>
@@ -236,7 +237,7 @@ $(document).ready(function(){initNavTree('lib_8cpp_source.html',''); initResizab
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    }</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>}</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="classgenerator.html#ab6ddb5c1e2ecaae39f2dcd286afb4028">  151</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classgenerator.html#ab6ddb5c1e2ecaae39f2dcd286afb4028">generator::generate_functions</a>() {</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="keywordtype">bool</span> generator::generate_functions() {</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordflow">if</span> (esp_code.is_open() &amp;&amp; functions.is_open() &amp;&amp; config_file.is_open()) {</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        esp_code &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
@@ -283,28 +284,19 @@ $(document).ready(function(){initNavTree('lib_8cpp_source.html',''); initResizab
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    }</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>}</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="classgenerator.html#a67003ba93afd33d7bd7b0fac396a2e79">  199</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classgenerator.html#a67003ba93afd33d7bd7b0fac396a2e79">generator::close_files</a>() {</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="keywordtype">void</span> generator::close_files() {</div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    config_file.close();</div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    functions.close();</div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    start_file.close();</div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    esp_code.close();</div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>}</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
-<div class="ttc" id="aclassgenerator_html_a106381345249cafbfde4cd2f2054d825"><div class="ttname"><a href="classgenerator.html#a106381345249cafbfde4cd2f2054d825">generator::generate_notes</a></div><div class="ttdeci">bool generate_notes()</div><div class="ttdef"><b>Definition</b> <a href="lib_8cpp_source.html#l00039">lib.cpp:39</a></div></div>
-<div class="ttc" id="aclassgenerator_html_a18c71e3a76126427cdf6fb7a28b34aed"><div class="ttname"><a href="classgenerator.html#a18c71e3a76126427cdf6fb7a28b34aed">generator::generate_loop</a></div><div class="ttdeci">bool generate_loop()</div><div class="ttdef"><b>Definition</b> <a href="lib_8cpp_source.html#l00126">lib.cpp:126</a></div></div>
-<div class="ttc" id="aclassgenerator_html_a548c695d25c28bd5d5a752f218abc338"><div class="ttname"><a href="classgenerator.html#a548c695d25c28bd5d5a752f218abc338">generator::generate_setup</a></div><div class="ttdeci">bool generate_setup()</div><div class="ttdef"><b>Definition</b> <a href="lib_8cpp_source.html#l00100">lib.cpp:100</a></div></div>
-<div class="ttc" id="aclassgenerator_html_a580092bc5938b5a6b6a7b3da0553ba84"><div class="ttname"><a href="classgenerator.html#a580092bc5938b5a6b6a7b3da0553ba84">generator::generator</a></div><div class="ttdeci">generator()=default</div></div>
-<div class="ttc" id="aclassgenerator_html_a67003ba93afd33d7bd7b0fac396a2e79"><div class="ttname"><a href="classgenerator.html#a67003ba93afd33d7bd7b0fac396a2e79">generator::close_files</a></div><div class="ttdeci">void close_files()</div><div class="ttdef"><b>Definition</b> <a href="lib_8cpp_source.html#l00199">lib.cpp:199</a></div></div>
-<div class="ttc" id="aclassgenerator_html_ab6ddb5c1e2ecaae39f2dcd286afb4028"><div class="ttname"><a href="classgenerator.html#ab6ddb5c1e2ecaae39f2dcd286afb4028">generator::generate_functions</a></div><div class="ttdeci">bool generate_functions()</div><div class="ttdef"><b>Definition</b> <a href="lib_8cpp_source.html#l00151">lib.cpp:151</a></div></div>
-<div class="ttc" id="aclassgenerator_html_abf0c1fd69eae589840062002e0a6396b"><div class="ttname"><a href="classgenerator.html#abf0c1fd69eae589840062002e0a6396b">generator::generate_defines</a></div><div class="ttdeci">bool generate_defines()</div><div class="ttdef"><b>Definition</b> <a href="lib_8cpp_source.html#l00053">lib.cpp:53</a></div></div>
-<div class="ttc" id="aclassgenerator_html_af31cdd2ff73a106313a84349687192cd"><div class="ttname"><a href="classgenerator.html#af31cdd2ff73a106313a84349687192cd">generator::chek_pins</a></div><div class="ttdeci">bool chek_pins()</div><div class="ttdef"><b>Definition</b> <a href="lib_8cpp_source.html#l00030">lib.cpp:30</a></div></div>
-<div class="ttc" id="acourse__work_8hpp_html"><div class="ttname"><a href="course__work_8hpp.html">course_work.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="lib_8cpp.html">lib.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><b>lib.cpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
