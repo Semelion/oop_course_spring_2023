@@ -27,7 +27,7 @@ generator::generator(std::string json_src_file = "src/config.json", std::string 
     }
 }
 ///////////////////////////////////////////////////////////////
-bool generator::chek_pins(){
+bool generator::check_pins(){
     if(pins.size() >= config["button"].size() + config["relay"].size())
         return true;
     else{

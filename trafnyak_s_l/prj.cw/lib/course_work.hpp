@@ -33,7 +33,7 @@ public:
     ~generator() = default;
 
     //@brief Метод проверки соответсвия количества пинов на плате и количества кнопок и реле
-    bool chek_pins();
+    bool check_pins();
 
     //@brief Метод генерирует и записывает комментарии в заголовке
     bool generate_notes();

@@ -35,7 +35,7 @@ int main (int argc, char* argv[]) {
     }
 //    std::cout << config << "\t" << type << "\t" << out << "\t" << std::endl;
     generator gen(config, type, out);
-    gen.chek_pins();
+    gen.check_pins();
     gen.generate_notes();
     gen.generate_defines();
     gen.generate_setup();
