@@ -32,40 +32,40 @@ public:
     generator& operator=(const generator& rhs) = default;
     ~generator() = default;
 
-    //@brief Метод проверки соответсвия количества пинов на плате и количества кнопок и реле
+    ///\brief Метод проверки соответсвия количества пинов на плате и количества кнопок и реле
     bool check_pins();
 
-    //@brief Метод генерирует и записывает комментарии в заголовке
+    ///\brief Метод генерирует и записывает комментарии в заголовке
     bool generate_notes();
 
-    //@brief Метод генерирует и записывает все необходимые дефайны и переменные
+    ///\brief Метод генерирует и записывает все необходимые дефайны и переменные
     bool generate_defines();
 
-    //@brief Метод генерирует и записывает  функцию setup
+    ///\brief Метод генерирует и записывает  функцию setup
     bool generate_setup();
 
-    //@brief Метод генерирует и записывает функцию loop
+    ///\brief Метод генерирует и записывает функцию loop
     bool generate_loop();
 
-    //@brief Метод генерирует и записывает функции используемые для подключения к WIFI и MQTT брокеру и callback
+    ///\brief Метод генерирует и записывает функции используемые для подключения к WIFI и MQTT брокеру и callback
     bool generate_functions();
 
-    //@brief Метод закрывает открытые файлы
+    ///\brief Метод закрывает открытые файлы
     void close_files();
 
 private:
-    std::vector<int> pins;
+    std::vector<int> pins; ///Динамический массив пинов в удобном порядке
 //    int pins[11] = {23, 22, 21, 19, 18, 5, 17, 16, 4, 2, 15};// конфиг под плату
-    int count_used_pins = 0;
-    std::string tupe_of_esp = "esp32";
+    int count_used_pins = 0; ///Количество использованных пинов
+    std::string tupe_of_esp = "esp32"; ///Тип платы
 
     std::ofstream esp_code;
     std::ifstream start_file;
     std::ifstream functions;
     std::ifstream config_file;
-    nlohmann::json config;
-    std::set<std::string>::iterator it;
-    std::set<std::string> topics;
+    nlohmann::json config; ////Конфиг в формате JSON считтаный из файла
+    std::set<std::string>::iterator it; ////Итератор для списка топиков
+    std::set<std::string> topics; ////Список топиков
 };
 
 #endif //OOP_COURSE_SPRING_2023_COURSE_WORK_HPP
