@@ -17,7 +17,7 @@ project(cours_spring_2023)
 set(nlohmann-json_IMPLICIT_CONVERSIONS OFF)
 find_package(nlohmann_json CONFIG REQUIRED)
 
-find_package(doctest REQUIRED)
+#find_package(doctest REQUIRED)
 
 add_subdirectory(prj.cw)
 #add_subdirectory(prj.lab)
