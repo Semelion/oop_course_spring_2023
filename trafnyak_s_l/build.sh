@@ -8,3 +8,5 @@ else
 fi
 
 cmake --build build --config Release
+
+cmake --install ./build  --prefix ./course_work_cpnsole

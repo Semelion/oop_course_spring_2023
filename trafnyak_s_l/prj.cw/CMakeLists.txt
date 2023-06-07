@@ -12,7 +12,7 @@ target_include_directories(course_work PUBLIC
         $<INSTALL_INTERFACE:src>  # <prefix>/include/mylib
         )
 
-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src DESTINATION ${CMAKE_BINARY_DIR})
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src DESTINATION bin)
 
 install(TARGETS course_work DESTINATION bin)
 

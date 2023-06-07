@@ -1486,6 +1486,7 @@ dl {
         padding: 0 0 0 0;
 }
 
+/* dl.note, dl.warning, dl.attention, dl.pre, dl.post, dl.invariant, dl.deprecated, */
 dl.section {
 	margin-left: 0px;
 	padding-left: 0px;

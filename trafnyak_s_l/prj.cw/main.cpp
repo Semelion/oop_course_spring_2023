@@ -1,4 +1,4 @@
-#include "lib/lib.cpp"
+#include "lib/course_work.hpp"
 
 int main (int argc, char* argv[]) {
 //    for(int i = 0; i < argc; i++){
@@ -34,7 +34,7 @@ int main (int argc, char* argv[]) {
         }
     }
 //    std::cout << config << "\t" << type << "\t" << out << "\t" << std::endl;
-    generator gen(config, type, out);
+    generator gen(config, type, out, "src/start_of_code.txt", "src/function.txt");
     gen.check_pins();
     gen.generate_notes();
     gen.generate_defines();
