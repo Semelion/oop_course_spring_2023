@@ -7,4 +7,4 @@ target_include_directories(arrayt PUBLIC INTERFACE
   $<INSTALL_INTERFACE:include>
 )
 
-install(TARGETS arrayt)
+#install(TARGETS arrayt)

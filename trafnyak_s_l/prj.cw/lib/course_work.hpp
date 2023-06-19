@@ -28,7 +28,8 @@ public:
     * @param functions_src_file фацйл в котором содержтся функции для копирования
     */
 
-    generator(std::string json_src_file, std::string type_of_mk, std::string out_code_file, std::string start_of_code_src_file, std::string functions_src_file);
+    generator(const std::string &json_src_file, const std::string &type_of_mk, const std::string &out_code_file,
+              const std::string &start_of_code_src_file, const std::string &functions_src_file);
     generator& operator=(const generator& rhs) = default;
     ~generator() = default;
 

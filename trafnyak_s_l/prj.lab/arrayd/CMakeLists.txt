@@ -6,7 +6,7 @@ target_include_directories(arrayd PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>
 )
-install(TARGETS arrayd)
+#install(TARGETS arrayd)
 
 set(CMAKE_CXX_STANDARD 20)
 
